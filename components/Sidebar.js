@@ -24,6 +24,8 @@ function Sidebar() {
         <SearchInput placeholder="Search in chats" />
       </Search>
       <SidebarButton>Start a new chat</SidebarButton>
+
+      {/* list of chats */}
     </Container>
   );
 }
