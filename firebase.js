@@ -1,4 +1,6 @@
-import firebase from "firebase";
+import { initializeApp, getApps } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyARZYXPE_Mnfhk9XCFU2iRgCF90tRWRhbs",
@@ -9,12 +11,9 @@ const firebaseConfig = {
   appId: "1:707716016857:web:a1af653868472c55b12cc8",
 };
 
-const app = !firebase.apps.length
-  ? firebase.initializeApp(firebaseConfig)
-  : firebase.app();
+const app = !getApps.length ? initializeApp(firebaseConfig) : getApps();
 
-const db = app.firestore();
-const auth = app.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { db, auth, provider };
+export { db, auth };
